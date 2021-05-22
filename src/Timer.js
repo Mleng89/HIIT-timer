@@ -57,10 +57,12 @@ export default function Timer() {
 					onChange={handleChange2}
 				/>
 			</form> */}
-			<div>
+			<div className='message'>
 				<h1>{message ? 'COOL   DOWN   TIME' : 'WORK   OUT   TIME'}</h1>
 			</div>
-			<h1>Timer: {message ? `00:${fullNewTime}` : `00:${fullTime}`}</h1>
+			<div className='timer'>
+				<h1>Timer: {message ? `00:${fullNewTime}` : `00:${fullTime}`}</h1>
+			</div>
 		</>
 	);
 }
