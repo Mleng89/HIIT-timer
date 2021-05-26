@@ -1,8 +1,15 @@
 * {
-	background-color: #3da9fc;
-	color: #fffffe;
-	margin: 10%;
+	/* background-color: #3da9fc; */
+	/* color: #fffffe; */
+	margin: 7%;
 }
 .App {
 	text-align: center;
+}
+
+.message {
+	font-size: xx-large;
+}
+.timer {
+	font-size: xx-large;
 }

@@ -1,15 +1,31 @@
 import React, { useState, useEffect } from 'react';
-
+import './App.css';
 export default function Timer() {
-	const [time, setTime] = useState(45);
-	const [newTime, setNewTime] = useState(15);
+	const [time, setTime] = useState(0);
+	const [newTime, setNewTime] = useState(0);
 	const [message, setMessage] = useState(false);
-	console.log('what is my time', time);
-	console.log('what is my newTime', newTime);
 
-	const handleClick = (e) => {
+	const handleClickOnTimer = (e) => {
 		e.preventDefault();
-		console.log(e.target);
+		const time = e.target.innerHTML;
+		console.log(time);
+		if (time === '20 Seconds') {
+			setTime(20);
+		}
+		if (time === '45 Seconds') {
+			setTime(45);
+		}
+	};
+	const handleClickCoolTimer = (e) => {
+		e.preventDefault();
+		const time = e.target.innerHTML;
+		console.log(time);
+		if (time === '5 Seconds') {
+			setNewTime(5);
+		}
+		if (time === '15 Seconds') {
+			setNewTime(15);
+		}
 	};
 	const handleChange = (e) => {
 		setTime(e.target.value);
@@ -26,8 +42,8 @@ export default function Timer() {
 				newTime > 0 && setInterval(() => setNewTime(newTime - 1), 1000);
 			if (newTime === 0) {
 				setMessage(false);
-				setTime(45);
-				setNewTime(15);
+				setTime(0);
+				setNewTime(0);
 			}
 			return () => clearInterval(coolCountDown);
 		}
@@ -62,6 +78,24 @@ export default function Timer() {
 			</div>
 			<div className='timer'>
 				<h1>Timer: {message ? `00:${fullNewTime}` : `00:${fullTime}`}</h1>
+			</div>
+			<div>
+				<h1>On timers:</h1>
+				<button onClick={handleClickOnTimer} value='20' type='submit'>
+					20 Seconds
+				</button>
+				<button onClick={handleClickOnTimer} value='45' type='submit'>
+					45 Seconds
+				</button>
+			</div>
+			<div>
+				<h1>Cooldown options:</h1>
+				<button onClick={handleClickCoolTimer} type='submit'>
+					5 Seconds
+				</button>
+				<button onClick={handleClickCoolTimer} type='submit'>
+					15 Seconds
+				</button>
 			</div>
 		</>
 	);

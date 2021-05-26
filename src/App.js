@@ -4,7 +4,7 @@ import Timer from './Timer';
 function App() {
 	return (
 		<div className='App'>
-			<h1>HIIT Timer</h1>
+			<h1>Your HIIT Timer:</h1>
 			<Timer />
 		</div>
 	);
